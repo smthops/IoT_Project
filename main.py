@@ -39,13 +39,13 @@ def sendData(device, variable, value):
 sensor = dht.DHT11(machine.Pin(22))
 led = machine.Pin(15, machine.Pin.OUT)
 
-# Your device send a random value between 0 and 100 every five second to Ubidots
+# Device measures temperature and humidity whilst lighting up LED, then sends to Ubidots
 while True:
-    led.value(1)
+    led.value(1) # Lights up LED
     sensor.measure()	# Starts measuring
     value1 = sensor.temperature()	# Measures the temperature
-    returnValue1 = sendData(DEVICE_LABEL, VARIABLE_LABEL_1, value1)	# Sends the temperature measured to Ubidots
     value2 = sensor.humidity()	# Measures the humidity
+    led.value(0) # Turns off LED
+    returnValue1 = sendData(DEVICE_LABEL, VARIABLE_LABEL_1, value1)	# Sends the temperature measured to Ubidots
     returnValue2 = sendData(DEVICE_LABEL, VARIABLE_LABEL_2, value2)	# Sends the humidity measured to Ubidots
-    led.value(0)
     sleep(DELAY)	# Rests for 5 seconds
