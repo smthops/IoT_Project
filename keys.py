@@ -1,2 +1,2 @@
-WIFI_SSID = "2 fly for a WiFi" # Your WiFi SSID
-WIFI_PASS = "Vegeta123" # Your WiFi password
+WIFI_SSID = "My WiFi" # Your WiFi SSID
+WIFI_PASS = "Password123" # Your WiFi password
